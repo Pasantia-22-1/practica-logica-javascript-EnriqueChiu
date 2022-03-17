@@ -40,3 +40,18 @@ Lo anterior mencionado lo tengo de forma recursiva hasta que la list.length == 1
 Luego solo retorno el resultado.
 
 ## Capturas de pantallas
+
+### Prueba1
+![Alt text](./img/Prueba1.JPG "Prueba 1")
+
+### Prueba2
+![Alt text](./img/Prueba2.JPG "Prueba 2")
+
+### Prueba3
+![Alt text](./img/Prueba3.JPG "Prueba 3")
+
+### Prueba4
+![Alt text](./img/Prueba4.JPG "Prueba 4")
+
+### Prueba5
+![Alt text](./img/Prueba5.JPG "Prueba 5")

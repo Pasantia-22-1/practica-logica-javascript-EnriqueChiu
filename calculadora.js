@@ -101,7 +101,7 @@ class Cal{
     }
 }
 
-var strInput = "25/3+9-8*4"
+var strInput = "4*2+5/2/2"
 
 if (strInput.length > 20){
     console.log("The string exceeds 20 long")

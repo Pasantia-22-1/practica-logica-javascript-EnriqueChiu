@@ -1,4 +1,3 @@
-//const Arithmetic = require('./arithmetic.js');
 
 class Cal{
     constructor(ope) {
@@ -18,7 +17,7 @@ class Cal{
         let list = [];
         for (n in this._ope){
             let character = this._ope[n]
-            if (character == "+"|| character == "-"|| character == "*"|| character == "/"){
+            if (character == "+"|| character == "-"|| character == "*"|| character == "/" || character == "^"){
                 list.push(parseInt(num));
                 list.push(character);
                 num = ""
@@ -35,25 +34,41 @@ class Cal{
     }
 
     calculate(list){
+        let flag2 = false;
         let flag = false;
         for (let index = 0; index < list.length; index++) {
             let element = list[index];
             let numRight = list[index+1];
             let numLeft = list[index-1];
-            if (element == "*"){
-                let result = numRight * numLeft;
+            if (element == "^"){
+                let result = numRight**numLeft;
                 list[index] = result;
                 list.splice(index+1, 1);
                 list.splice(index-1, 1);
-                flag = true;
+                flag2 = true;
                 break;
-            }else if (element == "/"){
-                let result = numLeft/numRight;
-                list[index] = result;
-                list.splice(index+1, 1);
-                list.splice(index-1, 1);
-                flag = true
-                break;
+            }
+        }
+        if (!flag2){
+            for (let index = 0; index < list.length; index++) {
+                let element = list[index];
+                let numRight = list[index+1];
+                let numLeft = list[index-1];
+                if (element == "*"){
+                    let result = numRight * numLeft;
+                    list[index] = result;
+                    list.splice(index+1, 1);
+                    list.splice(index-1, 1);
+                    flag = true;
+                    break;
+                }else if (element == "/"){
+                    let result = numLeft/numRight;
+                    list[index] = result;
+                    list.splice(index+1, 1);
+                    list.splice(index-1, 1);
+                    flag = true
+                    break;
+                }
             }
         }
         if (!flag){
@@ -91,7 +106,7 @@ class Cal{
             let cast = parseInt(character)
             if(!isNaN(cast)){
                 continue
-            }else if (character == "+"|| character == "-"|| character == "*"|| character == "/"){
+            }else if (character == "+"|| character == "-"|| character == "*"|| character == "/" || character == "^"){
                 continue
             }else{
                 return false;
@@ -101,7 +116,7 @@ class Cal{
     }
 }
 
-var strInput = "4*2+5/2/2"
+var strInput = "4^2"
 
 if (strInput.length > 20){
     console.log("The string exceeds 20 long")
